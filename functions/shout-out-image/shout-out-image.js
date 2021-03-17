@@ -61,17 +61,15 @@ exports.handler = async function (event, ctx, callback) {
   `);
 
   if (userData) {
-    const imageResponse = await page.waitForResponse(userData.photoURL);
-    if (imageResponse) {
-      await page.addScriptTag({
-        content: `
-      window.image = "${userData.photoURL}";
-      window.displayName = "${userData.displayName}";
-      window.username = "${userData.username}";
-    `,
-      });
-      await page.addScriptTag({ content: script });
-    }
+    await page.waitForResponse(userData.photoURL);
+    await page.addScriptTag({
+      content: `
+    window.image = "${userData.photoURL}";
+    window.displayName = "${userData.displayName}";
+    window.username = "${userData.username}";
+  `,
+    });
+    await page.addScriptTag({ content: script });
   }
 
   const boundingRect = await page.evaluate(() => {
