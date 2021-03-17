@@ -19,7 +19,7 @@ const Card = styled.div`
   width: 1200px;
   height: 630px;
   overflow: hidden;
-  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: "Whitney SSm A", "Whitney SSm B", 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   position: relative;
 `;
 

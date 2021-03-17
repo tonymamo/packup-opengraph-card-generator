@@ -52,7 +52,7 @@ exports.handler = async function (event, ctx, callback) {
             overflow: hidden;
           "
         >
-          Thanks for contributing to Storybook!
+          Check me out on packup!
         </div>
       </div>
     </body>
