@@ -77,7 +77,7 @@ exports.handler = async function (event, ctx, callback) {
     return { x, y, width, height };
   });
 
-  await page.waitForTimeout(500);
+  await page.waitForLoadState({ waitUntil: "domcontentloaded" });
   const screenshotBuffer = await page.screenshot({ clip: boundingRect });
   await browser.close();
 
