@@ -7,8 +7,5 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "tonymamo <tmamo13991@gmail.com>",
-  "license": "MIT",
-  "dependencies": {
-    "cloudinary": "^1.25.0"
-  }
+  "license": "MIT"
 }

@@ -1,38 +1,28 @@
-const cloudinary = require("cloudinary").v2;
-const qs = require("querystring");
-cloudinary.config({
-  cloud_name: "getpackup",
-  api_key: process.env.CLOUDINARY_KEY,
-  api_secret: process.env.CLOUDINARY_SECRET
-});
+// Original video:
+// https://egghead.io/lessons/javascript-using-cloudinary-as-a-write-through-cache-for-a-netlify-function-that-generates-images
 
-exports.handler = async function(event, ctx) {
-  const { queryStringParameters } = event;
+// Updated code copied from comment on the video aboe that pointed to here:
+// https://github.com/joelhooks/joelhooks-opengraph-images/blob/master/functions/process-url/process-url.js
+const qs = require('querystring')
 
+exports.handler = async function (event, ctx) {
+  const {queryStringParameters} = event
   try {
-    // https://res.cloudinary.com/sector/image/upload/v1583637123/og-images/img-1.png
-    const imageUrl = cloudinary.url(
-      `${process.env.TONY_IMAGE_VERSION}/og-images/img-1.png`,
-      {
-        // resouce_type: "raw"
-        sign_url: true,
-        // secure: true,
-        custom_pre_function: {
-          function_type: "remote",
-          source: `https://packup-opengraph-card-generator.netlify.app/.netlify/functions/shout-out-image?${qs.stringify(
-            queryStringParameters
-          )}`
-        }
-      }
-    );
+    const imageUrl = `https://res.cloudinary.com/${
+      process.env.CLOUD_NAME
+    }/image/fetch/${encodeURIComponent(
+      `https://packup-opengraph-card-generator.netlify.app/.netlify/functions/shout-out-image?${qs.stringify(
+        queryStringParameters,
+      )}`,
+    )}`
     return {
       statusCode: 302,
       headers: {
-        Location: imageUrl
+        Location: imageUrl,
       },
-      body: ""
-    };
+      body: '',
+    }
   } catch (e) {
-    console.log(e);
+    console.log(e)
   }
-};
+}
