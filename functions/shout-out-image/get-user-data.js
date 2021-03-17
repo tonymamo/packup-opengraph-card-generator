@@ -6,7 +6,6 @@ exports.getUserData = async function (username) {
   const userData = await fetch(`${url}?username=${username}`)
     .then((res) => res.json())
     .then((json) => {
-      console.log(json);
       return {
         image: json.photoURL,
         displayName: json.displayName,
