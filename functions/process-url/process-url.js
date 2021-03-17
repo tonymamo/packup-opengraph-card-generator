@@ -7,16 +7,14 @@ const qs = require('querystring')
 
 exports.handler = async function (event, ctx) {
   const { queryStringParameters } = event;
-  console.log('qs', queryStringParameters);
+
   try {
-    const imageUrl = `https://res.cloudinary.com/${
-      process.env.CLOUD_NAME
-    }/image/fetch/${encodeURIComponent(
-      `https://packup-opengraph-card-generator.netlify.app/.netlify/functions/shout-out-image?${qs.stringify(
-        queryStringParameters,
-      )}`,
-    )}`
-    console.log('url', imageUrl);
+    const imageUrl = `https://res.cloudinary.com/${process.env.CLOUD_NAME
+      }/image/fetch/${encodeURIComponent(
+        `https://packup-opengraph-card-generator.netlify.app/.netlify/functions/shout-out-image?${qs.stringify(
+          queryStringParameters,
+        )}`,
+      )}`;
     return {
       statusCode: 302,
       headers: {
