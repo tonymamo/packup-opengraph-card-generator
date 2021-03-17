@@ -61,7 +61,6 @@ exports.handler = async function (event, ctx, callback) {
   `);
 
   if (userData) {
-    await page.waitForTimeout(500);
     await page.addScriptTag({
       content: `
       window.image = "${userData.photoURL}";
@@ -78,6 +77,7 @@ exports.handler = async function (event, ctx, callback) {
     return { x, y, width, height };
   });
 
+  await page.waitForTimeout(500);
   const screenshotBuffer = await page.screenshot({ clip: boundingRect });
   await browser.close();
 

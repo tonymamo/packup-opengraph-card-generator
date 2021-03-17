@@ -1,8 +1,14 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 import { StorybookLogo } from './storybook-logo';
 import { PackupLogo } from './packup-logo';
 import { NoiseRings } from './noise-rings';
+
+const GlobalStyle = createGlobalStyle`
+  *,*:before,*:after{box-sizing:inherit}
+  html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;box-sizing:border-box;height:100%}
+  body{margin:0}
+`
 
 const Background = styled(NoiseRings)`
   display: block;
@@ -75,6 +81,7 @@ const Message = styled.div`
 
 export const ShoutOut = ({ image, username, displayName }) => (
   <Card>
+    <GlobalStyle />
     <Background width={1200} height={630} strokeWidth={8} seed={username} />
     <Message>
       <Title>Check out my trips on packup!</Title>
