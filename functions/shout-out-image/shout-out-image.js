@@ -31,7 +31,7 @@ exports.handler = async function (event, ctx, callback) {
         href="https://cloud.typography.com/7222118/6340832/css/fonts.css"
       />
       <link rel="preload" href="${
-        userData ? userData.image : ''
+        userData ? userData.photoURL : ''
       }" as="image" media="(max-width: 600px)" />
     </head>
 
@@ -61,9 +61,10 @@ exports.handler = async function (event, ctx, callback) {
   `);
 
   if (userData) {
+    console.log(userData);
     await page.addScriptTag({
       content: `
-      window.image = "${userData.image}";
+      window.image = "${userData.photoURL}";
       window.displayName = "${userData.displayName}";
       window.username = "${userData.username}";
     `,

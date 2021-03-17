@@ -1,13 +1,11 @@
 const fetch = require('node-fetch');
 
-let url = `https://us-central1-getpackup.cloudfunctions.net/getUserInfo`;
-
 exports.getUserData = async function (username) {
-  const userData = await fetch(`${url}?username=${username}`)
+  const userData = await fetch(`https://us-central1-getpackup.cloudfunctions.net/getUserInfo?username=${username}`)
     .then((res) => res.json())
     .then((json) => {
       return {
-        image: json.photoURL,
+        photoURL: json.photoURL,
         displayName: json.displayName,
         username: `@${username}`,
         lastUpdated: `${json.lastUpdated.valueOf()}`,

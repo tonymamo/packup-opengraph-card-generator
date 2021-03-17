@@ -1,4 +1,5 @@
 import React from 'react';
+import fetch from 'node-fetch';
 
 import { ShoutOut } from './shout-out';
 
@@ -7,11 +8,35 @@ export default {
   component: ShoutOut,
 };
 
-const Template = (args) => <ShoutOut {...args} />;
+const getUserData = async (username) => {
+  const userData = await fetch(`https://us-central1-getpackup.cloudfunctions.net/getUserInfo?username=${username}`)
+    .then((res) => res.json())
+    .then((json) => {
+      return {
+        image: json.photoURL,
+        displayName: json.displayName,
+        username: `@${username}`,
+        lastUpdated: `${json.lastUpdated.valueOf()}`,
+      };
+    })
+    .catch((err) => console.error('error:' + err));
+
+  return userData;
+}
+
+const Template = (args, { loaded: { data } }) => <ShoutOut {...args} image={data.photoURL || args.image} />;
 
 export const Default = Template.bind({});
 Default.args = {
-  image: 'https://firebasestorage.googleapis.com/v0/b/getpackup.appspot.com/o/PxJ6sK8Aw7PxUam69moS5jNd6yG2%2Favatar?alt=media&token=4c8dd3d6-a5ab-4177-b528-1cc5943f44f3',
+  image: 'https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?f=y&d=mp&s=280',
   username: '@tonymamo',
   displayName: 'Tony Mamo'
 };
+
+Default.loaders = [
+  async () => ({
+    data: await fetch('https://us-central1-getpackup.cloudfunctions.net/getUserInfo?username=tonymamo').then((res) => { return res.json()}),
+  })
+];
+
+
