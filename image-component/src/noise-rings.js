@@ -41,8 +41,8 @@ export const NoiseRings = ({
           y2="13.5806"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="#5677FE" />
-          <stop offset="1" stopColor="#FF7300" />
+          <stop stopColor="#fafafa" />
+          <stop offset="1" stopColor="#dbdbdb" />
         </linearGradient>
       </defs>
       <g

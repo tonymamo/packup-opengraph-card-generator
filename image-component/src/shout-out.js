@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { StorybookLogo } from './storybook-logo';
+import { PackupLogo } from './packup-logo';
 import { NoiseRings } from './noise-rings';
 
 const Background = styled(NoiseRings)`
@@ -11,7 +12,7 @@ const Background = styled(NoiseRings)`
   bottom: 0;
   left: 0;
   z-index: -1;
-  background-color: #2a0481;
+  background-color: #C46200;
 `;
 
 const Card = styled.div`
@@ -49,14 +50,14 @@ const Username = styled.div`
   color: #fff;
 `;
 
-const User = ({ image, username }) => (
+const User = ({ image, username, displayName }) => (
   <div>
     <UserImage src={image} />
     <Username>{username}</Username>
   </div>
 );
 
-const StyledStorybookLogo = styled(StorybookLogo)`
+const StyledPackupLogo = styled(PackupLogo)`
   position: absolute;
   left: 64px;
   bottom: 36px;
@@ -72,13 +73,13 @@ const Message = styled.div`
   margin-bottom: 125px;
 `;
 
-export const ShoutOut = ({ image, username }) => (
+export const ShoutOut = ({ image, username, displayName }) => (
   <Card>
     <Background width={1200} height={630} strokeWidth={8} seed={username} />
     <Message>
-      <Title>Thanks for contributing to Storybook!</Title>
+      <Title>See what {displayName} is packing on packup</Title>
       <User image={image} username={username} />
     </Message>
-    <StyledStorybookLogo />
+    <StyledPackupLogo />
   </Card>
 );

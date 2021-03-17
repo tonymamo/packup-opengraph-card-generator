@@ -8,8 +8,8 @@ const script = fs.readFileSync(path.resolve(__dirname, './image.js'), 'utf-8');
 exports.handler = async function (event, ctx, callback) {
   const { queryStringParameters } = event;
 
-  const userId = queryStringParameters.id;
-  const userData = await getUserData(userId);
+  const username = queryStringParameters.username;
+  const userData = await getUserData(username);
 
   const browser = await playwright.launchChromium();
   const context = await browser._defaultContext;
@@ -63,6 +63,7 @@ exports.handler = async function (event, ctx, callback) {
     await page.addScriptTag({
       content: `
       window.image = "${userData.image}";
+      window.displayName = "${userData.displayName}";
       window.username = "${userData.username}";
     `,
     });
