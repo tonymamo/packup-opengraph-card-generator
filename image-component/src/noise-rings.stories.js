@@ -18,7 +18,7 @@ const Template = (args) => (
     style={{
       // width: '100%',
       // height: 'auto',
-      backgroundColor: '#131415',
+      backgroundColor: '#C46200',
     }}
   />
 );
@@ -28,5 +28,5 @@ Default.args = {};
 
 export const SeedBasedImage = Template.bind({});
 SeedBasedImage.args = {
-  seed: '@winkerVSbecks',
+  seed: '@tonymamo',
 };

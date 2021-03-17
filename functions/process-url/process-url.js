@@ -6,7 +6,8 @@
 const qs = require('querystring')
 
 exports.handler = async function (event, ctx) {
-  const {queryStringParameters} = event
+  const { queryStringParameters } = event;
+  console.log('qs', queryStringParameters);
   try {
     const imageUrl = `https://res.cloudinary.com/${
       process.env.CLOUD_NAME
@@ -15,6 +16,7 @@ exports.handler = async function (event, ctx) {
         queryStringParameters,
       )}`,
     )}`
+    console.log('url', imageUrl);
     return {
       statusCode: 302,
       headers: {
