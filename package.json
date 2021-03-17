@@ -2,7 +2,7 @@
   "name": "shout-out-generator",
   "version": "1.0.0",
   "main": "index.js",
-  "author": "winkerVSbecks",
+  "author": "tonymamo <tmamo13991@gmail.com>",
   "license": "MIT",
   "scripts": {
     "start": "netlify dev"

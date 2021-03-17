@@ -25,8 +25,10 @@ exports.handler = async function (event, ctx, callback) {
     <head>
       <meta charset="utf-8" />
       <link
-        href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,700,800,900&display=swap"
         rel="stylesheet"
+        type="text/css"
+        media="all"
+        href="https://cloud.typography.com/7222118/6340832/css/fonts.css"
       />
       <link rel="preload" href="${
         userData ? userData.image : ''
