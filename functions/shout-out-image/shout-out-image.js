@@ -61,7 +61,6 @@ exports.handler = async function (event, ctx, callback) {
   `);
 
   if (userData) {
-    console.log(userData);
     await page.addScriptTag({
       content: `
       window.image = "${userData.photoURL}";
@@ -74,6 +73,7 @@ exports.handler = async function (event, ctx, callback) {
 
   const boundingRect = await page.evaluate(() => {
     const app = document.getElementById('app');
+    console.log(app.children[0]);
     const { x, y, width, height } = app.children[0].getBoundingClientRect();
     return { x, y, width, height };
   });

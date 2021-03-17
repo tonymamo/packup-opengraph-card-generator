@@ -3,7 +3,6 @@ import { render } from 'react-dom';
 import { ShoutOut } from './shout-out';
 
 function App() {
-  console.log(window.image);
   return <ShoutOut image={window.image} username={window.username} displayName={window.displayName} />;
 }
 
