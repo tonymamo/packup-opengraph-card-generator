@@ -77,7 +77,7 @@ export const ShoutOut = ({ image, username, displayName }) => (
   <Card>
     <Background width={1200} height={630} strokeWidth={8} seed={username} />
     <Message>
-      <Title>See what {displayName} is packing on packup</Title>
+      <Title>Check out my trips on packup!</Title>
       <User image={image} username={username} />
     </Message>
     <StyledPackupLogo />

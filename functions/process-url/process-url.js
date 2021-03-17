@@ -9,7 +9,7 @@ exports.handler = async function (event, ctx) {
   const { queryStringParameters } = event;
 
   try {
-    const imageUrl = `https://res.cloudinary.com/${process.env.CLOUD_NAME
+    const imageUrl = await `https://res.cloudinary.com/${process.env.CLOUD_NAME
       }/image/fetch/${encodeURIComponent(
         `https://packup-opengraph-card-generator.netlify.app/.netlify/functions/shout-out-image?${qs.stringify(
           queryStringParameters,

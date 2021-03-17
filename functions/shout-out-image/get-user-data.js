@@ -10,6 +10,7 @@ exports.getUserData = async function (username) {
         image: json.photoURL,
         displayName: json.displayName,
         username: `@${username}`,
+        lastUpdated: `${json.lastUpdated.valueOf()}`,
       };
     })
     .catch((err) => console.error('error:' + err));

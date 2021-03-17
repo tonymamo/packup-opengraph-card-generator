@@ -40,19 +40,20 @@ exports.handler = async function (event, ctx, callback) {
         <div
           style="
             display: flex;
+            background-color: #c46200;
             align-items: center;
             text-align: center;
             font-size: 72px;
             font-weight: 900;
             line-height: 96px;
-            font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial,
+            font-family: 'Whitney SSm A', 'Whitney SSm B', 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial,
               sans-serif;
             width: 1200px;
             height: 630px;
             overflow: hidden;
           "
         >
-          Check me out on packup!
+          Check out my trips on packup!
         </div>
       </div>
     </body>
