@@ -61,14 +61,17 @@ exports.handler = async function (event, ctx, callback) {
   `);
 
   if (userData) {
-    await page.addScriptTag({
-      content: `
+    const imageResponse = await page.waitForResponse(userData.photoURL);
+    if (imageResponse) {
+      await page.addScriptTag({
+        content: `
       window.image = "${userData.photoURL}";
       window.displayName = "${userData.displayName}";
       window.username = "${userData.username}";
     `,
-    });
-    await page.addScriptTag({ content: script });
+      });
+      await page.addScriptTag({ content: script });
+    }
   }
 
   const boundingRect = await page.evaluate(() => {
@@ -77,7 +80,8 @@ exports.handler = async function (event, ctx, callback) {
     return { x, y, width, height };
   });
 
-  await page.waitForLoadState({ waitUntil: "domcontentloaded" });
+  
+
   const screenshotBuffer = await page.screenshot({ clip: boundingRect });
   await browser.close();
 
