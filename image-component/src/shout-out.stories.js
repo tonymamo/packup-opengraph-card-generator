@@ -14,7 +14,6 @@ const getUserData = async (username) => {
     .then((json) => {
       return {
         image: json.photoURL,
-        displayName: json.displayName,
         username: `@${username}`,
         lastUpdated: `${json.lastUpdated.valueOf()}`,
       };
@@ -30,7 +29,6 @@ export const Default = Template.bind({});
 Default.args = {
   image: 'https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?f=y&d=mp&s=280',
   username: '@tonymamo',
-  displayName: 'Tony Mamo'
 };
 
 Default.loaders = [

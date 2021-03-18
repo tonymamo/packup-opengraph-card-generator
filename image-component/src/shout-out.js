@@ -56,7 +56,7 @@ const Username = styled.div`
   color: #fff;
 `;
 
-const User = ({ image, username, displayName }) => (
+const User = ({ image, username }) => (
   <div>
     <UserImage src={image} />
     <Username>{username}</Username>
@@ -79,7 +79,7 @@ const Message = styled.div`
   margin-bottom: 125px;
 `;
 
-export const ShoutOut = ({ image, username, displayName }) => (
+export const ShoutOut = ({ image, username }) => (
   <Card>
     <GlobalStyle />
     <Background width={1200} height={630} strokeWidth={8} seed={username} />

@@ -6,9 +6,7 @@ exports.getUserData = async function (username) {
     .then((json) => {
       return {
         photoURL: json.photoURL,
-        displayName: json.displayName,
         username: `@${username}`,
-        lastUpdated: `${json.lastUpdated.valueOf()}`,
       };
     })
     .catch((err) => console.error('error:' + err));

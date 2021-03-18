@@ -61,10 +61,10 @@ exports.handler = async function (event, ctx, callback) {
   `);
 
   if (userData) {
+    console.log(userData);
     await page.addScriptTag({
       content: `
     window.image = "${userData.photoURL}";
-    window.displayName = "${userData.displayName}";
     window.username = "${userData.username}";
   `,
     });
