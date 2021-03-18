@@ -68,8 +68,6 @@ exports.handler = async function (event, ctx, callback) {
   });
 
   await page.addScriptTag({ content: script });
-  
-  await page.waitForSelector('data-test-id');
 
   const boundingRect = await page.evaluate(() => {
     const app = document.getElementById('app');
