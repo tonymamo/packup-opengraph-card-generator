@@ -58,7 +58,7 @@ const Username = styled.div`
 
 const User = ({ image, username }) => (
   <div>
-    <UserImage src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?f=y&d=mp&s=280" />
+    <UserImage src="https://avatars.githubusercontent.com/u/1933657?v=4" />
     <Username>{username}</Username>
   </div>
 );
