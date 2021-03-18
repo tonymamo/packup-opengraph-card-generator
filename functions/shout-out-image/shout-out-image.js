@@ -73,6 +73,8 @@ exports.handler = async function (event, ctx, callback) {
     return { x, y, width, height };
   });
 
+  await page.waitFor('data-test-id=avatar');
+
   const screenshotBuffer = await page.screenshot({ clip: boundingRect });
   await browser.close();
 
