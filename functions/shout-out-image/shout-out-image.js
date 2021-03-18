@@ -1,4 +1,4 @@
-const { chromium } = require('playwright');
+const playwright = require('playwright-aws-lambda');
 const fs = require('fs');
 const path = require('path');
 const { getUserData } = require('./get-user-data');
@@ -11,7 +11,7 @@ exports.handler = async function (event, ctx, callback) {
   const username = queryStringParameters.username;
   const userData = await getUserData(username);
 
-  const browser = await chromium.launch();
+  const browser = await playwright.launchChromium();
   const context = await browser.newContext();
   const page = await context.newPage();
 
