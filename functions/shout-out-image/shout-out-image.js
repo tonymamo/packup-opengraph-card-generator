@@ -77,7 +77,8 @@ exports.handler = async function (event, ctx, callback) {
     return { x, y, width, height };
   });
 
-  
+  const element = await page.waitForSelector('img');
+  console.log('Loaded image: ' + await element.getAttribute('src'));
 
   const screenshotBuffer = await page.screenshot({ clip: boundingRect });
   await browser.close();
