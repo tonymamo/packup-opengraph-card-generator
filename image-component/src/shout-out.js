@@ -58,7 +58,7 @@ const Username = styled.div`
 
 const User = ({ image, username }) => (
   <div>
-    <UserImage src={image} data-test-id="avatar" />
+    <UserImage src={image} />
     <Username>{username}</Username>
   </div>
 );
