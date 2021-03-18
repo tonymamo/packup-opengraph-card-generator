@@ -60,14 +60,12 @@ exports.handler = async function (event, ctx, callback) {
   `);
 
   if (userData) {
-    console.log(userData);
     await page.addScriptTag({
       content: `
-        window.image = "${userData.photoURL}";
-        window.username = "${userData.username}";
-      `,
+      window.image = "${userData.image}";
+      window.username = "${userData.username}";
+    `,
     });
-
     await page.addScriptTag({ content: script });
   }
 
