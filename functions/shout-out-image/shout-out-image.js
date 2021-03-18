@@ -59,15 +59,17 @@ exports.handler = async function (event, ctx, callback) {
   </html>
   `);
 
-  
-  await page.addScriptTag({
-    content: `
-      window.image = "${userData.photoURL}";
-      window.username = "${userData.username}";
-    `,
-  });
+  if (userData) {
+    console.log(userData);
+    await page.addScriptTag({
+      content: `
+        window.image = "${userData.photoURL}";
+        window.username = "${userData.username}";
+      `,
+    });
 
-  await page.addScriptTag({ content: script });
+    await page.addScriptTag({ content: script });
+  }
 
   const boundingRect = await page.evaluate(() => {
     const app = document.getElementById('app');
