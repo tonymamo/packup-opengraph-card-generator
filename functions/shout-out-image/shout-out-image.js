@@ -24,18 +24,12 @@ exports.handler = async function (event, ctx, callback) {
   <html>
     <head>
       <meta charset="utf-8" />
-      <link
-        rel="stylesheet"
-        type="text/css"
-        media="all"
-        href="https://cloud.typography.com/7222118/6340832/css/fonts.css"
-      />
       <link rel="preload" href="${
         userData ? userData.photoURL : ''
       }" as="image" media="(max-width: 600px)" />
     </head>
 
-    <body>
+    <body style="margin: 0;padding:0">
       <div id="app">
         <div
           style="
@@ -59,17 +53,19 @@ exports.handler = async function (event, ctx, callback) {
   </html>
   `);
 
-  if (userData) {
-    await page.addScriptTag({ content: script });
-    await page.addScriptTag({
-      content: `
-    window.image = "${userData.photoURL}";
-    window.username = "${userData.username}";
-  `,
-    });
+  
+  await page.addScriptTag({
+    content: `
+      window.image = "${userData.photoURL}";
+      window.username = "${userData.username}";
+    `,
+  });
 
-    console.log(script);
-  }
+  await page.addStyleTag({
+    url: 'https://cloud.typography.com/7222118/6340832/css/fonts.css'
+  })
+
+  await page.addScriptTag({ content: script });
 
   const boundingRect = await page.evaluate(() => {
     const app = document.getElementById('app');
