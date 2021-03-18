@@ -24,14 +24,8 @@ exports.handler = async function (event, ctx, callback) {
   <html>
     <head>
       <meta charset="utf-8" />
-      <link
-        rel="stylesheet"
-        type="text/css"
-        media="all"
-        href="https://cloud.typography.com/7222118/6340832/css/fonts.css"
-      />
       <link rel="preload" href="${
-        userData ? userData.photoURL : ''
+        userData ? userData.image : ''
       }" as="image" media="(max-width: 600px)" />
     </head>
 
