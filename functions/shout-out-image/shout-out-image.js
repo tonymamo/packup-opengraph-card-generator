@@ -53,6 +53,10 @@ exports.handler = async function (event, ctx, callback) {
   </html>
   `);
 
+  await page.addStyleTag({
+    url: 'https://cloud.typography.com/7222118/6340832/css/fonts.css',
+  })
+
   if (userData) {
     await page.addScriptTag({
       content: `
