@@ -7,6 +7,8 @@ const script = fs.readFileSync(path.resolve(__dirname, './image.js'), 'utf-8');
 exports.handler = async function (event, ctx, callback) {
   const { queryStringParameters } = event;
 
+  console.log(queryStringParameters);
+
   const username = queryStringParameters.username;
   const photoURL = queryStringParameters.photoURL;
 
@@ -59,7 +61,6 @@ exports.handler = async function (event, ctx, callback) {
   `);
 
   if (username) {
-    console.log(username, photoURL);
     await page.addScriptTag({
       content: `
         window.image = "${photoURL}";
