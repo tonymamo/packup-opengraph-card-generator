@@ -73,11 +73,12 @@ exports.handler = async function (event, ctx, callback) {
 
   const boundingRect = await page.evaluate(() => {
     const app = document.getElementById('app');
+    console.log(app.children[0]);
     const { x, y, width, height } = app.children[0].getBoundingClientRect();
     return { x, y, width, height };
   });
 
-  const screenshotBuffer = await page.screenshot({ clip: boundingRect, timeout: 500 });
+  const screenshotBuffer = await page.screenshot({ clip: boundingRect });
   await browser.close();
 
   return {
