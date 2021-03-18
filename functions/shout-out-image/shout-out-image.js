@@ -63,7 +63,7 @@ exports.handler = async function (event, ctx, callback) {
 
   await page.addStyleTag({
     url: 'https://cloud.typography.com/7222118/6340832/css/fonts.css'
-  })
+  });
 
   await page.addScriptTag({ content: script });
 
