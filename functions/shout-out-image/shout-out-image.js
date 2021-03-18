@@ -12,7 +12,7 @@ exports.handler = async function (event, ctx, callback) {
   const userData = await getUserData(username);
 
   const browser = await playwright.launchChromium();
-  const context = await browser._defaultContext;
+  const context = await browser.newContext();
   const page = await context.newPage();
 
   page.setViewportSize({
