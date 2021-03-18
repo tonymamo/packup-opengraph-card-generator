@@ -11,7 +11,7 @@ exports.handler = async function (event, ctx, callback) {
   const username = queryStringParameters.username;
   const userData = await getUserData(username);
 
-  const browser = await chromium.launchChromium();
+  const browser = await chromium.launch();
   const context = await browser.newContext();
   const page = await context.newPage();
 
