@@ -61,7 +61,6 @@ exports.handler = async function (event, ctx, callback) {
   `);
 
   if (userData) {
-    await page.waitForResponse(userData.photoURL);
     await page.addScriptTag({
       content: `
     window.image = "${userData.photoURL}";
