@@ -58,7 +58,7 @@ const Username = styled.div`
 
 const User = ({ image, username }) => (
   <div>
-    <UserImage src={image} />
+    <UserImage src="https://firebasestorage.googleapis.com/v0/b/getpackup.appspot.com/o/PxJ6sK8Aw7PxUam69moS5jNd6yG2%2Favatar?alt=media&token=a2511a84-41a1-45fd-9fb5-b9cfee92f37d" />
     <Username>{username}</Username>
   </div>
 );
