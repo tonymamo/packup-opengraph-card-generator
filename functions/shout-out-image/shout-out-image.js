@@ -1,16 +1,15 @@
 const playwright = require('playwright-aws-lambda');
 const fs = require('fs');
 const path = require('path');
+const { getUserData } = require('./get-user-data');
 
 const script = fs.readFileSync(path.resolve(__dirname, './image.js'), 'utf-8');
 
 exports.handler = async function (event, ctx, callback) {
   const { queryStringParameters } = event;
 
-  console.log(queryStringParameters);
-
   const username = queryStringParameters.username;
-  const photoURL = queryStringParameters.photoURL;
+  const userData = await getUserData(username);
 
   const browser = await playwright.launchChromium();
   const context = await browser._defaultContext;
@@ -32,7 +31,7 @@ exports.handler = async function (event, ctx, callback) {
         href="https://cloud.typography.com/7222118/6340832/css/fonts.css"
       />
       <link rel="preload" href="${
-        photoURL ? photoURL : ''
+        userData ? userData.photoURL : ''
       }" as="image" media="(max-width: 600px)" />
     </head>
 
@@ -60,12 +59,13 @@ exports.handler = async function (event, ctx, callback) {
   </html>
   `);
 
-  if (username) {
+  if (userData) {
+    console.log(userData);
     await page.addScriptTag({
       content: `
-        window.image = "${photoURL}";
-        window.username = "@${username}";
-      `,
+    window.image = "${userData.photoURL}";
+    window.username = "${userData.username}";
+  `,
     });
     await page.addScriptTag({ content: script });
   }
