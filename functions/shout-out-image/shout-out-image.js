@@ -63,7 +63,7 @@ exports.handler = async function (event, ctx, callback) {
     console.log(userData);
     await page.addScriptTag({
       content: `
-      window.image = "${userData.image}";
+      window.image = "https://firebasestorage.googleapis.com/v0/b/getpackup.appspot.com/o/PxJ6sK8Aw7PxUam69moS5jNd6yG2%2Favatar?alt=media&token=a2511a84-41a1-45fd-9fb5-b9cfee92f37d";
       window.username = "${userData.username}";
     `,
     });
