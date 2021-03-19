@@ -7,7 +7,7 @@ exports.getUserData = async function (username) {
     .then((res) => res.json())
     .then((json) => {
       return {
-        image: json.photoURL,
+        image: `https://avatars.githubusercontent.com/u/1933657?v=4`,
         username: `@${json.username}`,
       };
     })

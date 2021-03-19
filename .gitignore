@@ -6,3 +6,5 @@ node_modules
 functions/shout-out-image/image.js
 
 image-component/storybook-static
+# Local Netlify folder
+.netlify
