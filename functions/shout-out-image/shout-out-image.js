@@ -24,12 +24,18 @@ exports.handler = async function (event, ctx, callback) {
   <html>
     <head>
       <meta charset="utf-8" />
+      <link
+        rel="stylesheet"
+        type="text/css"
+        media="all"
+        href="https://cloud.typography.com/7222118/6340832/css/fonts.css"
+      />
       <link rel="preload" href="${
         userData ? userData.image : ''
       }" as="image" media="(max-width: 600px)" />
     </head>
 
-    <body style="margin: 0;padding:0">
+    <body style="margin: 0;padding:0;font-family: 'Whitney SSm A', 'Whitney SSm B', 'Open Sans', sans-serif;">
       <div id="app">
         <div
           style="
