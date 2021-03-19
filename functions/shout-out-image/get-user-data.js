@@ -1,14 +1,14 @@
 const fetch = require('node-fetch');
 
-let url = `https://us-central1-getpackup.cloudfunctions.net/getUserInfo?username=`;
+let url = `https://api.github.com/users`;
 
 exports.getUserData = async function (username) {
-  const userData = await fetch(`${url}${username}`)
+  const userData = await fetch(`${url}/${username}`)
     .then((res) => res.json())
     .then((json) => {
       return {
-        image: `https://avatars.githubusercontent.com/u/1933657?v=4`,
-        username: `@${json.username}`,
+        image: json.avatar_url,
+        username: `@${username}`,
       };
     })
     .catch((err) => console.error('error:' + err));
