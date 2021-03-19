@@ -69,7 +69,7 @@ exports.handler = async function (event, ctx, callback) {
     return { x, y, width, height };
   });
 
-  await new Promise((resolve) => setTimeout(resolve, '500'));
+  await new Promise((resolve) => setTimeout(resolve, '1000'));
   const screenshotBuffer = await page.screenshot({ clip: boundingRect });
   await browser.close();
 
