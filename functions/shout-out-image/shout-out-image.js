@@ -11,6 +11,7 @@ exports.handler = async function (event, ctx, callback) {
   const username = queryStringParameters.username;
   const userData = await getUserData(username);
 
+  await loadFont('https://getpackup.com/fonts/Whitney-Bold.ttf');
   const browser = await playwright.launchChromium();
   const context = await browser.newContext();
   const page = await context.newPage();
@@ -24,18 +25,12 @@ exports.handler = async function (event, ctx, callback) {
   <html>
     <head>
       <meta charset="utf-8" />
-      <link
-        rel="stylesheet"
-        type="text/css"
-        media="all"
-        href="https://cloud.typography.com/7222118/6340832/css/fonts.css"
-      />
       <link rel="preload" href="${
         userData ? userData.image : ''
       }" as="image" media="(max-width: 600px)" />
     </head>
 
-    <body style="margin: 0;padding:0;font-family: 'Whitney SSm A', 'Whitney SSm B', 'Open Sans', sans-serif;">
+    <body style="margin: 0;padding:0;font-family: 'Whitney-Bold', sans-serif; font-weight: 700;">
       <div id="app">
         <div
           style="
@@ -44,9 +39,9 @@ exports.handler = async function (event, ctx, callback) {
             align-items: center;
             text-align: center;
             font-size: 72px;
-            font-weight: 900;
+            font-weight: 700;
             line-height: 96px;
-            font-family: 'Whitney SSm A', 'Whitney SSm B', sans-serif;
+            font-family: 'Whitney-Bold', sans-serif;
             width: 1200px;
             height: 630px;
             overflow: hidden;
