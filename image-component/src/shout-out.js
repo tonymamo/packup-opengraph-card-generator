@@ -58,7 +58,7 @@ const Username = styled.div`
 
 const User = ({ image, username }) => (
   <div>
-    <UserImage src={image} />
+    <UserImage src="https://i.pravatar.cc/280" />
     <Username>{username}</Username>
   </div>
 );

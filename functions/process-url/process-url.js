@@ -1,7 +1,7 @@
 // Original video:
 // https://egghead.io/lessons/javascript-using-cloudinary-as-a-write-through-cache-for-a-netlify-function-that-generates-images
 
-// Updated code copied from comment on the video aboe that pointed to here:
+// Updated code copied from comment on the video above that pointed to here:
 // https://github.com/joelhooks/joelhooks-opengraph-images/blob/master/functions/process-url/process-url.js
 const qs = require('querystring')
 
