@@ -11,7 +11,7 @@ exports.handler = async function (event, ctx, callback) {
   const username = queryStringParameters.username;
   const userData = await getUserData(username);
 
-  await loadFont('https://getpackup.com/fonts/Whitney-Bold.ttf');
+  await playwright.loadFont('https://getpackup.com/fonts/Whitney-Bold.ttf');
   const browser = await playwright.launchChromium();
   const context = await browser.newContext();
   const page = await context.newPage();
