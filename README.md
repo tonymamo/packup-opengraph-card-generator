@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/8d8845d2-f705-4104-adee-ff5361b7c28f/deploy-status)](https://app.netlify.com/sites/packup-opengraph-card-generator/deploys)
+
 # Packup Open Graph Image Generator Kit
 
 An image generation API template.
