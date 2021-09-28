@@ -8,6 +8,6 @@
     "start": "netlify dev"
   },
   "dependencies": {
-    "netlify-cli": "^3.4.6"
+    "netlify-cli": "^6.9.24"
   }
 }
