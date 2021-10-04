@@ -21,7 +21,7 @@
     "@rollup/plugin-replace": "^3.0.0",
     "@storybook/addon-actions": "^6.3.8",
     "@storybook/addon-essentials": "^6.3.8",
-    "@storybook/addon-links": "^6.3.8",
+    "@storybook/addon-links": "^6.3.9",
     "@storybook/react": "^6.3.8",
     "babel-loader": "^8.2.2",
     "rollup": "^2.1.0",
