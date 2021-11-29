@@ -24,7 +24,7 @@
     "@storybook/addon-links": "^6.3.10",
     "@storybook/react": "^6.3.10",
     "babel-loader": "^8.2.3",
-    "rollup": "^2.58.0",
+    "rollup": "^2.60.1",
     "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-node-builtins": "^2.1.2",
     "rollup-plugin-node-globals": "^1.4.0"
